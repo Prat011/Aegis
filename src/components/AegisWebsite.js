@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Send } from 'lucide-react';
-import ProjectSlideshow from './components/ProjectSlideshow';
+import ProjectSlideshow from './ProjectSlideshow';
 
 const AegisWebsite = () => {
   const [currentSection, setCurrentSection] = useState(0);
