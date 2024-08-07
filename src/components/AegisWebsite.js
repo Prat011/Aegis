@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Send } from 'lucide-react';
+import ProjectSlideshow from './components/ProjectSlideshow';
 
 const AegisWebsite = () => {
   const [currentSection, setCurrentSection] = useState(0);
@@ -88,47 +89,7 @@ const AegisWebsite = () => {
     {
       id: 'projects',
       content: (
-        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-green-500 to-yellow-400 text-white overflow-hidden">
-          <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-4xl font-bold mb-6">Our Projects</h2>
-            <div className="relative h-96 overflow-hidden">
-              <motion.div
-                className="flex absolute"
-                animate={{
-                  x: [0, -100 * projectData.length + '%'],
-                }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 20,
-                    ease: "linear",
-                  },
-                }}
-              >
-                {[...projectData, ...projectData].map((project, index) => (
-                  <motion.div
-                    key={index}
-                    className="w-72 h-96 bg-white rounded-lg shadow-lg mx-4 flex-shrink-0 cursor-pointer perspective-1000"
-                    whileHover={{ rotateY: 180 }}
-                  >
-                    <motion.div className="w-full h-full relative">
-                      <div className="absolute w-full h-full backface-hidden">
-                        <img src={project.image} alt={project.title} className="w-full h-3/4 object-cover rounded-t-lg" />
-                        <div className="p-4 text-center text-gray-800">
-                          <h3 className="text-xl font-bold">{project.title}</h3>
-                        </div>
-                      </div>
-                      <div className="absolute w-full h-full backface-hidden bg-white rounded-lg flex items-center justify-center p-4 text-gray-800" style={{ transform: 'rotateY(180deg)' }}>
-                        <p>{project.description}</p>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </div>
+        <ProjectSlideshow />
       ),
     },
     {
