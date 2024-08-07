@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Send } from 'lucide-react';
-import ProjectSlideshow from './ProjectSlideshow';
 
 const AegisWebsite = () => {
   const [currentSection, setCurrentSection] = useState(0);
@@ -18,13 +17,6 @@ const AegisWebsite = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const projectData = [
-    { title: "AI Assistant", image: "/api/placeholder/300/200", description: "An advanced AI assistant for customer support." },
-    { title: "Data Analytics", image: "/api/placeholder/300/200", description: "Powerful data analytics platform for business insights." },
-    { title: "Smart Home", image: "/api/placeholder/300/200", description: "Innovative smart home solutions powered by AI." },
-    { title: "Health Tech", image: "/api/placeholder/300/200", description: "AI-driven health monitoring and prediction system." },
-  ];
-
   const sections = [
     {
       id: 'intro',
@@ -36,7 +28,7 @@ const AegisWebsite = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Aegis
+            Aegis Consulting
           </motion.h1>
           <motion.p 
             className="text-2xl mb-8"
@@ -44,7 +36,7 @@ const AegisWebsite = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Empowering Businesses with Intelligent Solutions
+            Empowering Businesses with AI Solutions
           </motion.p>
           <motion.div
             className="w-32 h-32 rounded-full bg-white"
@@ -66,8 +58,8 @@ const AegisWebsite = () => {
     {
       id: 'about',
       content: (
-        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-teal-400 text-white overflow-hidden">
-          <div className="max-w-4xl mx-auto px-4 relative z-10">
+        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-blue-500 to-teal-400 text-white">
+          <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-4xl font-bold mb-6">What We Do</h2>
             <div className="flex items-center">
               <div className="w-1/2 pr-8">
@@ -81,6 +73,24 @@ const AegisWebsite = () => {
                   <li>AI strategy consulting</li>
                 </ul>
               </div>
+              <div className="w-1/2">
+                <motion.div
+                  className="w-64 h-64 bg-white rounded-lg shadow-lg"
+                  animate={{
+                    rotateY: [0, 360],
+                  }}
+                  transition={{
+                    duration: 2,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatDelay: 1
+                  }}
+                >
+                  <div className="w-full h-full flex items-center justify-center text-6xl text-blue-500">
+                    AI
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -89,7 +99,49 @@ const AegisWebsite = () => {
     {
       id: 'projects',
       content: (
-        <ProjectSlideshow />
+        <div className="flex items-center justify-center h-screen bg-gradient-to-br from-green-500 to-yellow-400 text-white">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-6">Our Projects</h2>
+            <div className="grid grid-cols-2 gap-8">
+              <motion.div
+                key="project1"
+                className="bg-white rounded-lg shadow-lg p-6 text-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <h3 className="text-2xl font-bold mb-2">ClarifyAI</h3>
+                <p>Simplifying Technical Documentation by building on Demand RAG systems for querying.</p>
+              </motion.div>
+              <motion.div
+                key="project2"
+                className="bg-white rounded-lg shadow-lg p-6 text-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <h3 className="text-2xl font-bold mb-2">Newsletter Writer</h3>
+                <p>AI agent that looks at the latest news based on an input topic and writes a newsletter.</p>
+              </motion.div>
+              <motion.div
+                key="project3"
+                className="bg-white rounded-lg shadow-lg p-6 text-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <h3 className="text-2xl font-bold mb-2">Report Generation</h3>
+                <p>AI Agent that writes a detailed Report based on an input data file in any report format requested.</p>
+              </motion.div>
+              <motion.div
+                key="project4"
+                className="bg-white rounded-lg shadow-lg p-6 text-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <h3 className="text-2xl font-bold mb-2">YogaChatbot</h3>
+                <p>Yoga Chatbot deployed on the web for a Yoga University based on more than a 1000 academically published research papers.</p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
       ),
     },
     {
